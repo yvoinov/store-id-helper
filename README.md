@@ -67,7 +67,9 @@ Adjust children value in accordingly to your load. Adjust paths to fit your setu
 
 Also add this refresh pattern rules on top of your refresh_patterns:
 
+```
 refresh_pattern	squidinternal	43200	100%	518400	override-expire refresh-ims reload-into-ims ignore-private store-stale ignore-no-store
+```
 
 and put all acl.* files into your squid's config directory. After all, just squid -k reconfigure and enjoy!
 
