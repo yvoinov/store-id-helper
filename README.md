@@ -28,24 +28,24 @@ setup.sh your_destination_binary_dir
 Copy all acl.* files to your squid config dir (default is /usr/local/squid/etc) and add this to your squid.conf:
 
 --------------- Cut --------------
-# No cache directives
+## No cache directives
 acl dont_cache_url url_regex "/usr/local/squid/etc/acl.url.nocache"
 cache deny dont_cache_url
 
-# Store rewrite ACLs
+## Store rewrite ACLs
 acl software_and_updates url_regex "/usr/local/squid/etc/acl.url.updates"
 acl store_rewrite_list_web url_regex "/usr/local/squid/etc/acl.url.rewrite_web"
 acl store_rewrite_list_web_path urlpath_regex "/usr/local/squid/etc/acl.urlpath.rewrite_web"
 acl store_rewrite_list_web_cdn url_regex "/usr/local/squid/etc/acl.url.rewrite_cdn"
 acl store_rewrite_list urlpath_regex "/usr/local/squid/etc/acl.urlpath.rewrite_other"
 
-# Storeurl rewriter
+## Storeurl rewriter
 store_id_program /usr/local/bin/store-id-helper
-# Squid 3.5+
+## Squid 3.5+
 store_id_children 4 startup=1 idle=1 concurrency=1024
-# Squid 4+
+## Squid 4+
 #store_id_children 4 startup=1 idle=1 concurrency=1024 queue-size=64
-# Store ID access
+## Store ID access
 acl store_id_get_method method GET
 store_id_access deny !store_id_get_method
 acl url_storeid_deny url_regex "/usr/local/squid/etc/acl.url.storeid_deny"
