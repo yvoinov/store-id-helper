@@ -28,24 +28,25 @@ setup.sh your_destination_binary_dir
 Copy all acl.* files to your squid config dir (default is /usr/local/squid/etc) and add this to your squid.conf:
 
 --------------- Cut --------------
-\# No cache directives<br \>
+```
+# No cache directives
 acl dont_cache_url url_regex "/usr/local/squid/etc/acl.url.nocache"
 cache deny dont_cache_url
 
-\# Store rewrite ACLs<br \>
+# Store rewrite ACLs
 acl software_and_updates url_regex "/usr/local/squid/etc/acl.url.updates"
 acl store_rewrite_list_web url_regex "/usr/local/squid/etc/acl.url.rewrite_web"
 acl store_rewrite_list_web_path urlpath_regex "/usr/local/squid/etc/acl.urlpath.rewrite_web"
 acl store_rewrite_list_web_cdn url_regex "/usr/local/squid/etc/acl.url.rewrite_cdn"
 acl store_rewrite_list urlpath_regex "/usr/local/squid/etc/acl.urlpath.rewrite_other"
 
-\# Storeurl rewriter<br \>
+# Storeurl rewriter
 store_id_program /usr/local/bin/store-id-helper
-\# Squid 3.5+<br \>
+# Squid 3.5+
 store_id_children 4 startup=1 idle=1 concurrency=1024
-\# Squid 4+<br \>
-\#store_id_children 4 startup=1 idle=1 concurrency=1024 queue-size=64
-\# Store ID access<br \>
+# Squid 4+
+#store_id_children 4 startup=1 idle=1 concurrency=1024 queue-size=64
+# Store ID access
 acl store_id_get_method method GET
 store_id_access deny !store_id_get_method
 acl url_storeid_deny url_regex "/usr/local/squid/etc/acl.url.storeid_deny"
@@ -59,6 +60,7 @@ store_id_access deny all
 store_id_bypass off
 
 range_offset_limit 8192 KB !dont_cache_url all
+```
 --------------- Cut --------------
 
 Adjust children value in accordingly to your load. Adjust paths to fit your setup.
@@ -74,9 +76,11 @@ Vimeo autoplay/chunked caching issue
 
 To prevent Vimeo using chunked videostreams, which leads autoplay problems and bad byte hit for videos, add this acl:
 
-\# Vimeo autoplay/chunked HTML5 caching issue<br \>
+```
+# Vimeo autoplay/chunked HTML5 caching issue
 acl vimeo_chunked url_regex vimeo.*master\.json
 http_access deny vimeo_chunked
+```
 
 anywhere above your final blocking rule and reconfigure your squid.
 
@@ -116,12 +120,16 @@ Debugging
 
 To debug helper, make sure log file exists and squid has permissions to write to first:
 
-\# ls -al /var/log/store-id-helper.log<br \>
+```
+# ls -al /var/log/store-id-helper.log
 -rw-r--r-- 1 squid squid 809391 Feb  5 17:30 /var/log/store-id-helper.log
+```
 
 Then add -d option to helper in squid.conf:
 
+```
 store_id_program /usr/local/bin/store-id-helper -d
+```
 
 and reconfigure squid.
 
