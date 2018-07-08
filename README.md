@@ -22,8 +22,10 @@ Squid configuration for production
 
 Unpack archive and run setup.sh (example):
 
+```
 unzip store-id-helper*.zip
 setup.sh your_destination_binary_dir
+```
 
 Copy all acl.* files to your squid config dir (default is /usr/local/squid/etc) and add this to your squid.conf:
 
