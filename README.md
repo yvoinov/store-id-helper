@@ -111,6 +111,7 @@ Note: Careful with -p and -q options! In general, this values is set in accordin
       and should not be too high. Concurrency, however, better to set several times higher than pool size/internal queue size value.
 
 ** -v show helper version and exit
+
 ** -h|-? show short help about command-line arguments and exit
 
 Hardware concurrency
