@@ -98,19 +98,21 @@ STORE-ID command-line options
       
 Note: You should specify full path + file name. Directory should exists and has permissions to write for 
       proxy non-privileged user. If file does not exists, it will create. If file exists, it will appends.
+      
 Note: Default log, when uses, should exists and has permissions to write for proxy non-privileged user.
 
 ** -p<numeric value> - set non-default processing threads. Valid range 1..4096.
       
 Note: If non-specified, helper internal concurrency is hardware concurrency by default. Values less than 1 is set to 1,
       values above 4096 sets to 4096 automatically.
+      
 Note: To run in 1-thread mode (for debug purposes or support legacy non-concurrent mode) just specify 0 or 1 thread.
 
 ** -q<numeric value> - set non-default thread pool queue size. Valid range (threads * 64)..262144.
 
 Note: Queue size should be power of 2. If not - will round to nearest power of 2. Values less (threads * 64) will always set to (threads * 64).
-Note: Careful with -p and -q options! In general, this values is set in according with concurrency= parameter in store_id_children
-      and should not be too high. Concurrency, however, better to set several times higher than pool size/internal queue size value.
+
+Note: Careful with -p and -q options! In general, this values is set in according with concurrency= parameter in store_id_children and should not be too high. Concurrency, however, better to set several times higher than pool size/internal queue size value.
 
 ** -v show helper version and exit
 
