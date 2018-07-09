@@ -95,11 +95,13 @@ STORE-ID command-line options
 ** -t set debug + timing flag (when built with -DTIME)
 
 ** -l<full log file name>  set log file. Default is /var/log/store-id-helper.log
+      
 Note: You should specify full path + file name. Directory should exists and has permissions to write for 
       proxy non-privileged user. If file does not exists, it will create. If file exists, it will appends.
 Note: Default log, when uses, should exists and has permissions to write for proxy non-privileged user.
 
 ** -p<numeric value> - set non-default processing threads. Valid range 1..4096.
+      
 Note: If non-specified, helper internal concurrency is hardware concurrency by default. Values less than 1 is set to 1,
       values above 4096 sets to 4096 automatically.
 Note: To run in 1-thread mode (for debug purposes or support legacy non-concurrent mode) just specify 0 or 1 thread.
