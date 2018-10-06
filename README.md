@@ -95,27 +95,27 @@ STORE-ID command-line options
 ** -t set debug + timing flag (when built with -DTIME)
 
 ** -l<full log file name>  set log file. Default is /var/log/store-id-helper.log
-      
 Note: You should specify full path + file name. Directory should exists and has permissions to write for 
       proxy non-privileged user. If file does not exists, it will create. If file exists, it will appends.
-      
 Note: Default log, when uses, should exists and has permissions to write for proxy non-privileged user.
 
 ** -p<numeric value> - set non-default processing threads. Valid range 1..4096.
-      
 Note: If non-specified, helper internal concurrency is hardware concurrency by default. Values less than 1 is set to 1,
       values above 4096 sets to 4096 automatically.
-      
 Note: To run in 1-thread mode (for debug purposes or support legacy non-concurrent mode) just specify 0 or 1 thread.
 
 ** -q<numeric value> - set non-default thread pool queue size. Valid range (threads * 64)..262144.
 
 Note: Queue size should be power of 2. If not - will round to nearest power of 2. Values less (threads * 64) will always set to (threads * 64).
+Note: Careful with -p and -q options! In general, this values is set in according with concurrency= parameter in store_id_children
+      and should not be too high. Concurrency, however, better to set several times higher than pool size/internal queue size value.
 
-Note: Careful with -p and -q options! In general, this values is set in according with concurrency= parameter in store_id_children and should not be too high. Concurrency, however, better to set several times higher than pool size/internal queue size value.
+** -a - turns on affinity.
+Note: By default, helper builds with threads affinity support (on supported platforms, now Solaris/Linux). On unsupported platforms
+      this control unavailable and not shown.
+Note: Affinity turned off by default. See "Affinity" below.
 
 ** -v show helper version and exit
-
 ** -h|-? show short help about command-line arguments and exit
 
 Hardware concurrency
@@ -123,6 +123,11 @@ Hardware concurrency
 
 To determine real hardware concurrency, just run tools_gethwc utility. Please, don't forget about another processes on server.
 Note: Determined value will set as default helper concurrency.
+
+Affinity
+========
+This option will use CPU/core affinity. Thread pool uses round-robin algorithm to bind threads across existing CPU/cores.
+Option useful in some cases/platforms and designed for predictive scheduling and helper latency.
 
 Debugging
 =========
