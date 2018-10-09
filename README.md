@@ -111,6 +111,7 @@ Note: Careful with -p and -q options! In general, this values is set in accordin
       and should not be too high. Concurrency, however, better to set several times higher than pool size/internal queue size value.
 
 ** -a - turns on affinity.
+
 Note: By default, helper builds with threads affinity support (on supported platforms, now Solaris/Linux). On unsupported platforms
       this control unavailable and not shown.
 Note: Affinity turned off by default. See "Affinity" below.
