@@ -156,8 +156,8 @@ You can use arbitrary log file using -l command-line option (see "STORE-ID comma
 Log records structure is:
 
 ```
-<-- 130 https://136skyfiregce-a.akamaihd.net/exp=1486297811~acl=%2F192156335%2F%2A~hmac=2493c8d048eb5997a1aacdcf09a388325a2b992fa2f605554e1b576c1b748341/192156335/video/640352241/chop/segment-52.m4s
---> 130 OK store-id=http://squidinternal.video-srv.vimeo/192156335/video/640352241/chop/segment-52.m4s
+<-- 130 https://eus-streaming-video-msn-com.akamaized.net/ce0c0e1f-18aa-4850-9c86-1946ddbee429/198a0fab-ebe9-473c-8af7-1e5bbd2c_640x360_1092.mp4
+--> 130 OK store-id=http://squidinternal.v.eus-streaming-video-msn-com/198a0fab-ebe9-473c-8af7-1e5bbd2c_640x360_1092.mp4
 
 <Direction of query> [channel ID] <input URL>
 <Direction of query> [channel ID] <helper response>
