@@ -15,7 +15,7 @@ INSTALLATION
 Libraries compatibility
 -----------------------
 
-Make sure your libstdc++ is at least 5.2 version. Upgrade if required first.
+Make sure your libstdc++/libc++ is at least 5.2 version. Upgrade if required first.
 
 Squid configuration for production
 ----------------------------------
