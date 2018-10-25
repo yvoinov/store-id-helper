@@ -112,8 +112,7 @@ Note: Careful with -p and -q options! In general, this values is set in accordin
 
 ** -a - turns on affinity.
 
-Note: By default, helper builds with threads affinity support (on supported platforms, now Solaris/Linux). On unsupported platforms
-      this control unavailable and not shown.
+Note: By default, helper builds with threads affinity support (on supported platforms, now Solaris/Linux/FreeBSD). On unsupported platforms this control unavailable and not shown.
 Note: Affinity turned off by default. See "Affinity" below.
 
 ** -v show helper version and exit
