@@ -7,7 +7,7 @@ products based on it.
 
 It uses standard helper protocol to interconnect with cache.
 
-DCB supports up to 4096 threads per helper process by default.
+DCB supports up to 4096 threads per helper process.
 
 INSTALLATION
 ============
