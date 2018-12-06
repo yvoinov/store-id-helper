@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# (c) 2017,2018 Yuri Voinov <yvoinov@gmail.com>
+#
+# 
+# [squid_storeid]
+# env.hostname localhost
+# env.port 3128
+#
+
+. $MUNIN_LIBDIR/plugins/plugin.sh
+
+if [ "$1" = "autoconf" ]; then
+        echo yes
+        exit 0
+fi
+
+# Defaults if no configuration
+l_host=${l_host:="localhost"}
+l_port=${l_port:="3128"}
+
+# Utilities
+l_client="/usr/local/squid/bin/squidclient"
+l_grep="/bin/grep"
+l_cut="/bin/cut"
+
+# Get helper version if any
+l_helper="`$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_grep -i "program:" | $l_cut -f2 -d":" | $l_cut -f2 -d" "`"
+l_version="`$l_helper -v 2>&1 | $l_grep Version | $l_cut -c 9-15`"
+
+# store-ID average total stats
+if [ "$1" = "config" ]; then
+	echo "graph_title Store-ID $l_version average service time"
+	echo "graph_args --base 1000 -l 0"
+	echo "graph_vlabel ms"
+	echo "graph_scale yes"
+	echo "graph_category squid"
+	echo "graph_info This graph shows the store-ID Squid''s average service time"
+
+	echo "service_time.label Avg.service time"
+        echo "service_time.draw AREASTACK"
+
+	exit 0
+fi
+
+echo "service_time.value" `$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_grep -i "avg service time" | $l_cut -f2 -d":" | $l_cut -f2 -d" "`
+##
