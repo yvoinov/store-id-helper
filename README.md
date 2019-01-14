@@ -121,6 +121,7 @@ Note: By default, helper builds with threads affinity support (on supported plat
 Note: Affinity turned off by default. See "Affinity" below.
 
 ** -v show helper version and exit
+
 ** -h|-? show short help about command-line arguments and exit
 
 Hardware concurrency
