@@ -90,7 +90,9 @@ STORE-ID command-line options
 =============================
 
 ** -d log debug to /var/log/store-id-helper.log
-** -t set debug + timing flag (when built with -DTIME)
+** -t<optional: time in ms> set debug + timing flag (when built with --enable-timing)
+
+Note: When specified time in ms, will log only queries with timing more than specified value.
 
 ** -l<full log file name>  set log file. Default is /var/log/store-id-helper.log
 
