@@ -1,6 +1,6 @@
 #!/opt/csw/bin/bash
 # Note: Required bash v4
-# (c) 2017,2018 Yuri Voinov <yvoinov@gmail.com>
+# (c) 2017,2019 Yuri Voinov <yvoinov@gmail.com>
 #
 # 
 # [squid_storeid]
@@ -27,7 +27,7 @@ l_grep="/bin/grep"
 
 # Array to get store-ID processes and times
 declare -a value
-value=(`$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_awk '{ if ($7 >= 0 && $7 <= 9) print $7 }'`)
+value=(`$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_awk '$7 ~ /^[0-9\.]+$/ { print $7 }'`)
 
 # Get helper version if any
 l_helper="`$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_grep -i "program:" | $l_cut -f2 -d":" | $l_cut -f2 -d" "`"
@@ -59,4 +59,4 @@ do
 	echo "Process_$cnt2.value ${value[$cnt2]}"
 	cnt2=`expr $cnt2 + 1`
 done
-####
+#
