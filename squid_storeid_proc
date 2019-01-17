@@ -1,6 +1,6 @@
 #!/opt/csw/bin/bash
 # Note: Required bash v4
-# (c) 2017,2019 Yuri Voinov <yvoinov@gmail.com>
+# (c) 2017, Yuri Voinov <yvoinov@gmail.com>
 #
 # 
 # [squid_storeid]
@@ -36,7 +36,7 @@ l_version="`$l_helper -v 2>&1 | $l_grep Version | $l_cut -c 9-15`"
 # store-ID service time per process
 if [ "$1" = "config" ]; then
 	echo "graph_title Store-ID $l_version process statistics"
-	echo "graph_args --base 1000 -l 0"
+	echo "graph_args --base 1000 -l 0 --upper-limit 0.02 --rigid"
 	echo "graph_vlabel ms"
 	echo "graph_scale yes"
 	echo "graph_category squid"
@@ -47,6 +47,9 @@ if [ "$1" = "config" ]; then
 	while [ "$cnt1" -lt "`echo ${#value[@]}`" ]
 	do
 		echo "Process_$cnt1.label Process $cnt1"
+		echo "Process_$cnt1.max 0.01"
+		echo "Process_$cnt1.min 0"
+		echo "Process_$cnt1.info Child $cnt1 latency in milliseconds"
 		cnt1=`expr $cnt1 + 1`
 	done
 	exit 0
@@ -59,4 +62,4 @@ do
 	echo "Process_$cnt2.value ${value[$cnt2]}"
 	cnt2=`expr $cnt2 + 1`
 done
-#
+###
