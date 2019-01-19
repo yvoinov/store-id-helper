@@ -44,7 +44,7 @@ acl store_rewrite_list urlpath_regex "/usr/local/squid/etc/acl.urlpath.rewrite_o
 
 # Storeurl rewriter
 store_id_program /usr/local/bin/store-id-helper
-# where N should equal helper internal queue size (512 by default)
+# where N should equal helper internal queue size (1024 by default)
 store_id_children 4 startup=1 idle=1 concurrency=N
 # Store ID access
 acl store_id_get_method method GET
@@ -109,9 +109,9 @@ Note: If non-specified, helper internal concurrency is hardware concurrency by d
 
 Note: To run in 1-thread mode (for debug purposes or support legacy non-concurrent mode) just specify 0 or 1 thread.
 
-** -q<numeric value> - set non-default thread pool queue size. Valid range 512..8192.
+** -q<numeric value> - set non-default thread pool queue size. Valid range 1024..8192.
 
-Note: Queue size should be power of 2. If not - will round to nearest power of 2. Values less 512 will always set to 512.
+Note: Queue size should be power of 2. If not - will round to nearest power of 2. Values less 1024 will always set to 1024.
 
 ** -a - turns on affinity.
 
