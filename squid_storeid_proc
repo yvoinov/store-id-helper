@@ -2,7 +2,7 @@
 # Note: Required bash v4
 # (c) 2017,2019 Yuri Voinov <yvoinov@gmail.com>
 #
-# 
+#
 # [squid_storeid]
 # env.hostname localhost
 # env.port 3128
@@ -64,4 +64,3 @@ do
 	echo "Process_$cnt2.value ${value[$cnt2]}"
 	cnt2=`expr $cnt2 + 1`
 done
-###

@@ -2,7 +2,7 @@
 #
 # (c) 2017,2019 Yuri Voinov <yvoinov@gmail.com>
 #
-# 
+#
 # [squid_storeid]
 # env.hostname localhost
 # env.port 3128
@@ -49,4 +49,3 @@ if [ "$1" = "config" ]; then
 fi
 
 echo "service_time.value" `$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_grep -i "avg service time" | $l_cut -f2 -d":" | $l_cut -f2 -d" "`
-####
