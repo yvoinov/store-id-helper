@@ -133,7 +133,7 @@ Note: Determined value will set as default helper concurrency.
 
 Affinity
 ========
-This option will use CPU/core affinity. Thread pool uses round-robin algorithm to bind threads across existing CPU/cores.
+This option will use CPU/core affinity. Thread pool uses round-robin algorithm to bind threads across online CPU/cores.
 Option useful in some cases/platforms and designed for predictive scheduling and helper latency.
 
 Debugging
