@@ -15,7 +15,9 @@ INSTALLATION
 Libraries compatibility
 -----------------------
 
-Make sure your libstdc++/libc++ is at least 5.2 version. Upgrade if required first.
+Usually helper statically linked with runtime libraries.
+
+Note: If it built with dynamic linking, make sure your libstdc++/libc++ is at least 5.2 version. Upgrade if required first.
 
 Squid configuration for production
 ----------------------------------
