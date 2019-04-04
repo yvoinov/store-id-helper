@@ -47,7 +47,7 @@ acl store_rewrite_list urlpath_regex "/usr/local/squid/etc/acl.urlpath.rewrite_o
 # Storeurl rewriter
 store_id_program /usr/local/bin/store-id-helper
 # where N should equal helper internal queue size (1024 by default)
-store_id_children 1 startup=1 idle=1 concurrency=N
+store_id_children 4 startup=1 idle=1 concurrency=N
 # Store ID access
 acl store_id_get_method method GET
 store_id_access deny !store_id_get_method
@@ -65,7 +65,7 @@ range_offset_limit 8192 KB !dont_cache_url all
 ```
 --------------- Cut --------------
 
-Adjust children value in accordingly to your load. Adjust paths to fit your setup.
+Adjust children value in accordingly to your load spikes. Adjust paths to fit your setup.
 
 Also add this refresh pattern rules on top of your refresh_patterns:
 
