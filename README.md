@@ -65,7 +65,7 @@ range_offset_limit 8192 KB !dont_cache_url all
 ```
 --------------- Cut --------------
 
-Adjust children value in accordingly to your load spikes. Adjust paths to fit your setup.
+Adjust children value in accordingly to your load spikes (usually this settings is enough). Adjust paths to fit your setup.
 
 Also add this refresh pattern rules on top of your refresh_patterns:
 
