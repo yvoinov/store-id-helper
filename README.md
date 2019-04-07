@@ -15,7 +15,9 @@ INSTALLATION
 Libraries compatibility
 -----------------------
 
-Make sure your libstdc++/libc++ is at least 5.2 version. Upgrade if required first.
+Usually helper statically linked with runtime libraries.
+
+Note: If it built with dynamic linking, make sure your libstdc++/libc++ is at least 5.2 version. Upgrade if required first.
 
 Squid configuration for production
 ----------------------------------
@@ -63,7 +65,7 @@ range_offset_limit 8192 KB !dont_cache_url all
 ```
 --------------- Cut --------------
 
-Adjust children value in accordingly to your load. Adjust paths to fit your setup.
+Adjust children value in accordingly to your load spikes (usually this settings is enough). Adjust paths to fit your setup.
 
 Also add this refresh pattern rules on top of your refresh_patterns:
 
