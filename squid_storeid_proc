@@ -1,0 +1,66 @@
+#!/opt/csw/bin/bash
+# Note: Required bash v4
+# (c) 2017,2019 Yuri Voinov <yvoinov@gmail.com>
+#
+#
+# [squid_storeid]
+# env.hostname localhost
+# env.port 3128
+#
+
+. $MUNIN_LIBDIR/plugins/plugin.sh
+
+if [ "$1" = "autoconf" ]; then
+        echo yes
+        exit 0
+fi
+
+# Defaults if no configuration
+l_host=${l_host:="localhost"}
+l_port=${l_port:="3128"}
+l_graph_limit=${l_graph_limit:=0.02}
+l_max=${l_max:=0.01}
+
+# Utilities
+l_client="/usr/local/squid/bin/squidclient"
+l_awk="/bin/awk"
+l_cut="/bin/cut"
+l_grep="/bin/grep"
+
+# Array to get store-ID processes and times
+declare -a value
+value=(`$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_awk '$7 ~ /^[0-9\.]+$/ { print $7 }'`)
+
+# Get helper version if any
+l_helper="`$l_client -h $l_host -p $l_port cache_object://$l_host/ mgr:store_id | $l_grep -i "program:" | $l_cut -f2 -d":" | $l_cut -f2 -d" "`"
+l_version="`$l_helper -v 2>&1 | $l_grep Version | $l_cut -c 9-15`"
+
+# store-ID service time per process
+if [ "$1" = "config" ]; then
+	echo "graph_title Store-ID $l_version process statistics"
+	echo "graph_args --base 1000 -l 0 --upper-limit $l_graph_limit --rigid"
+	echo "graph_vlabel ms"
+	echo "graph_scale yes"
+	echo "graph_category squid"
+	echo "graph_info This graph shows the per-process store-ID Squid''s service time"
+
+	# Print processes labels (ID's relative)
+	cnt1=0
+	while [ "$cnt1" -lt "`echo ${#value[@]}`" ]
+	do
+		echo "Process_$cnt1.label Process $cnt1"
+		echo "Process_$cnt1.max $l_max"
+		echo "Process_$cnt1.min 0"
+		echo "Process_$cnt1.info Child $cnt1 latency in milliseconds"
+		cnt1=`expr $cnt1 + 1`
+	done
+	exit 0
+fi
+
+# Print processes values (ID's relative)
+cnt2=0
+while [ "$cnt2" -lt "`echo ${#value[@]}`" ]
+do
+	echo "Process_$cnt2.value ${value[$cnt2]}"
+	cnt2=`expr $cnt2 + 1`
+done
