@@ -17,7 +17,7 @@ Libraries compatibility
 
 Usually helper statically linked with runtime libraries.
 
-Note: If it built with dynamic linking, make sure your libstdc++/libc++ is at least 5.2 version. Upgrade if required first.
+Note: If it built with dynamic linking, make sure your libstdc++/libc++ is at least 5.4 version. Upgrade if required first.
 
 Squid configuration for production
 ----------------------------------
