@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (c) 2017,2019 Yuri Voinov <yvoinov@gmail.com>
+# (c) 2017,2022 Yuri Voinov <yvoinov@gmail.com>
 #
 #
 # [squid_storeid]
@@ -18,8 +18,8 @@ fi
 # Defaults if no configuration
 l_host=${l_host:="localhost"}
 l_port=${l_port:="3128"}
-l_grap_limit=${l_graph_limit:=2}
-l_max=${l_max:=1}
+l_grap_limit=${l_graph_limit:=2000}
+l_max=${l_max:=1000}
 
 # Utilities
 l_client="/usr/local/squid/bin/squidclient"
