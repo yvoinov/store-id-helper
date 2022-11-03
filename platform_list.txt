@@ -1,13 +1,13 @@
-store-id-helper-1.3.8.0-FreeBSD-12.1-STABLE-amd64-trial.zip			FreeBSD 12.1 64 bit
-store-id-helper-1.3.8.0-Linux-3.10.0-1127.18.2.el7.x86_64-x86_64-trial.zip	CentOS 7 64 bit (glibC 2.17)
-store-id-helper-1.3.8.0-Linux-4.18.0-147.el8.x86_64-x86_64-trial.zip		CentOS 8 64 bit (glibC 2.28)
-store-id-helper-1.3.8.0-Linux-4.9.0-13-amd64-trial.zip				Debian 10 64 bit (glibC 2.28)
-store-id-helper-1.3.8.0-Linux-5.0.9-301.fc30.x86_64-x86_64-trial.zip		Fedora 30 64 bit (glibC 2.29)
-store-id-helper-1.3.8.0-OpenBSD-6.7-amd64-trial.zip				OpenBSD 6.7 64 bit
-store-id-helper-1.3.8.0-SunOS-5.10-amd64-trial.zip				Solaris 10 x86_64 bit
-store-id-helper-1.3.8.0-SunOS-5.10-sparcv9-trial.zip				Solaris 10 SPARCv9 64 bit (sun4u)
-store-id-helper-1.3.8.0-SunOS-5.11-amd64-trial.zip				Solaris 11 x86_64 64 bit
-store-id-helper-1.3.8.0-SunOS-5.11-sparcv9-trial.zip				Solaris 11 SPARCv9 64 bit (sun4v)
-store-id-helper-1.3.8.0-Linux-5.8.0-1010-raspi-aarch64-trial.zip		Ubuntu 20.10 aarch64 (glibC 2.32)
-store-id-helper-1.3.8.0-Linux-5.4.79-v7l+-armv7l-trial.zip			Raspberry Pi OS 32 bit
-
+store-id-helper-1.3.9.0-FreeBSD-13.1-RELEASE-p2-amd64-trial.zip				FreeBSD 13.1 64 bit
+store-id-helper-1.3.9.0-Linux-3.10.0-1160.76.1.el7.x86_64-x86_64-trial.zip		CentOS 7 64 bit (glibC 2.17)
+store-id-helper-1.3.9.0-Linux-4.14.291-218.527.amzn2.aarch64-aarch64-trial.zip		Amazon Linux 64 bit
+store-id-helper-1.3.9.0-Linux-4.18.0-348.7.1.el8_5.x86_64-x86_64-trial.zip		CentOS 8 64 bit (glibC 2.28)
+store-id-helper-1.3.9.0-Linux-4.19.0-22-amd64-x86_64-trial.zip				Debian 10 64 bit (glibC 2.28)
+store-id-helper-1.3.9.0-Linux-5.10.0-19-amd64-x86_64-trial.zip				Debian 11 64 bit
+store-id-helper-1.3.9.0-Linux-5.15.35-5.el7.3.x86_64-x86_64-trial.zip			RedOS 7.3 64 bit
+store-id-helper-1.3.9.0-Linux-5.15.61-v7l+-armv7l-trial.zip				Raspberry Pi OS 32 bit
+store-id-helper-1.3.9.0-Linux-6.0.2-arch1-1-x86_64-trial.zip        			Arch Linux 64 bit latest
+store-id-helper-1.3.9.0-Linux-6.0.5-200.fc36.x86_64-x86_64-trial.zip			Fedora Linux 64 bit latest
+store-id-helper-1.3.9.0-SunOS-5.10-amd64-trial.zip					Solaris 10 x86_64 64 bit
+store-id-helper-1.3.9.0-SunOS-5.10-sparcv9-trial.zip					Solaris 10 SPARC 64 bit
+store-id-helper-1.3.9.0-SunOS-5.11-amd64-trial.zip					Solaris 11 x86_64 64 bit
