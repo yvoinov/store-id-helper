@@ -9,5 +9,5 @@ store-id-helper-1.3.9.0-Linux-5.15.61-v7l+-armv7l-trial.zip				Raspberry Pi OS 3
 store-id-helper-1.3.9.0-Linux-6.0.2-arch1-1-x86_64-trial.zip        			Arch Linux 64 bit latest
 store-id-helper-1.3.9.0-Linux-6.0.5-200.fc36.x86_64-x86_64-trial.zip			Fedora Linux 64 bit latest
 store-id-helper-1.3.9.0-SunOS-5.10-amd64-trial.zip					Solaris 10 x86_64 64 bit
-store-id-helper-1.3.9.0-SunOS-5.10-sparcv9-trial.zip					Solaris 10 SPARC 64 bit
+store-id-helper-1.3.9.0-SunOS-5.10-sparcv9-trial.zip					Solaris 10 SPARC 64 bit (sun4u, sun4v)
 store-id-helper-1.3.9.0-SunOS-5.11-amd64-trial.zip					Solaris 11 x86_64 64 bit
